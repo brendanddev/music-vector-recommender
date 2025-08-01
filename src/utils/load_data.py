@@ -69,6 +69,6 @@ if __name__ == "__main__":
         print("Sample song:")
         print("Title:", songs[0].get("title", "No title"))
         print("Artist:", songs[0].get("artist", "Unknown artist"))
-        print("Lyrics snippet:", songs[0].get("lyrics", "")[:200])
+        print("Lyrics snippet:", songs[0].get("lyrics", "")[:2000])
     else:
         print("No songs loaded.")
