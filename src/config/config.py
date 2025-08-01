@@ -19,7 +19,7 @@ class Config:
     
     # Data and vectorizer config
     DATA_PATH = "data/song_lyrics.csv"
-    NUM_SONGS = 100
+    NUM_SONGS = 1000
     VECTORS_PATH = f"data/vectors_{NUM_SONGS or 'all'}.pkl"
     
     @classmethod
