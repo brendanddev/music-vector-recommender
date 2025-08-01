@@ -34,12 +34,3 @@ def get_spotify_token() -> str:
     # Extract token from response
     token = response.json()['access_token']
     return token
-
-
-if __name__ == "__main__":
-    try:
-        token = get_spotify_token()
-        print("Access Token fetched successfully:")
-        print(token)
-    except Exception as e:
-        print("Failed to fetch access token:", e)
