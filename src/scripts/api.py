@@ -45,3 +45,9 @@ def search_songs(query: str, types: str = "track,artist", limit: int = 10) -> Di
     
     # Return the parsed JSON response content
     return response.json()
+
+
+
+if __name__ == "__main__":
+    results = search_songs("Nirvana")
+    print(results)
