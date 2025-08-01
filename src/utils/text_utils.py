@@ -1,6 +1,7 @@
 
 """ 
 text_utils.py
+Utility functions for text preprocessing and cleaning, tailored for song lyrics.
 
 Brendan Dileo, August 2025
 """
