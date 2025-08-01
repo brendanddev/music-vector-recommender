@@ -9,6 +9,11 @@ import os
 import re
 import pickle 
 
+import numpy as np
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
 
 def clean_text(text) -> str:
     """  Cleans input text by converting to lowercase and removing html tags """
