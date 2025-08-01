@@ -4,3 +4,6 @@
 
 # Pycache files
 __pycache__/
+
+# Data file (Temp)
+music.json
