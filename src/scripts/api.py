@@ -68,10 +68,3 @@ def format_search_results(results: dict) -> str:
         formatted_results.append(f"Track: {track_name}\nArtists: {artists}\nAlbum: {album_name}\n")
 
     return "\n".join(formatted_results)
-
-
-
-
-if __name__ == "__main__":
-    results = search_songs("Nirvana")
-    print(format_search_results(results))
