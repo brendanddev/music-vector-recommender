@@ -10,3 +10,6 @@ music.json
 
 # Data files
 data/
+
+# Pickle files
+*.pkl
