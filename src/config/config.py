@@ -21,7 +21,10 @@ class Config:
     DATA_PATH = "data/song_lyrics.csv"
     NUM_SONGS = 1000
     VECTORS_PATH = f"data/vectors_{NUM_SONGS or 'all'}.pkl"
+    
+    # Recommendation settings
     NUM_RECS = 10
+    DEBUG_MODE = True 
     
     @classmethod
     def validate(cls):

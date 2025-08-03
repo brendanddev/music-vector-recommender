@@ -9,6 +9,7 @@ Brendan Dileo, August 2025
 
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+import config.config as Config
 
 def init_recommendations(n, songs):
     """ Selects 'n' random songs from the provided list of songs """
@@ -79,6 +80,14 @@ def generate_recommendations(selected_index, tfidf_matrix, songs, num_recs=10):
     # Sort by descending similarity, excluding the selected song itself
     sorted_indices = np.argsort(sim_scores)[::-1]
     sorted_indices = sorted_indices[1:]
+    
+    if Config.Config.DEBUG_MODE:
+        print("\n[DEBUG] Similarity Scores:")
+        for idx in sorted_indices[:num_recs * 2]:
+            title = songs[idx].get("title", "Unknown Title")
+            score = sim_scores[idx]
+            print(f"{title[:40]:40} | Score: {score:.4f}")
+            
     return get_similar_songs(sorted_indices, songs, num_recs)
 
 def display_recommendations(indices, songs):
