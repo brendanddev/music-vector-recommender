@@ -57,3 +57,26 @@ def get_similar_songs(sorted_indices, songs, num_similar=10):
         if len(recommendations) >= num_similar:
             break
     return recommendations
+
+
+def generate_recommendations(selected_index, tfidf_matrix, songs, num_recs=10):
+    """
+    Generates new song recommendations based on similarity to a selected song.
+
+    Args:
+        selected_index (int): Index of the song chosen by the user.
+        tfidf_matrix (scipy sparse matrix): Matrix of TF-IDF vectors for all songs.
+        songs (list): List of song dictionaries.
+        num_recs (int): Number of similar songs to recommend.
+
+    Returns:
+        list: Indices of recommended songs.
+    """
+    
+    # Compute similarity scores for the selected song
+    sim_scores = calculate_similarity(selected_index, tfidf_matrix)
+    
+    # Sort by descending similarity, excluding the selected song itself
+    sorted_indices = np.argsort(sim_scores)[::-1]
+    sorted_indices = sorted_indices[1:]
+    return get_similar_songs(sorted_indices, songs, num_recs)
