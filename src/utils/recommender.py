@@ -80,3 +80,16 @@ def generate_recommendations(selected_index, tfidf_matrix, songs, num_recs=10):
     sorted_indices = np.argsort(sim_scores)[::-1]
     sorted_indices = sorted_indices[1:]
     return get_similar_songs(sorted_indices, songs, num_recs)
+
+def display_recommendations(indices, songs):
+    """
+    Prints a list of recommended songs with title and artist.
+
+    Args:
+        indices (list): List of song indices to display.
+        songs (list): List of song dictionaries.
+    """
+    print("\nRecommended Songs:")
+    for i, idx in enumerate(indices, 1):
+        song = songs[idx]
+        print(f"{i}. {song.get('title', 'Unknown Title')} - {song.get('artist', 'Unknown Artist')}")
