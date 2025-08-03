@@ -21,6 +21,7 @@ class Config:
     DATA_PATH = "data/song_lyrics.csv"
     NUM_SONGS = 1000
     VECTORS_PATH = f"data/vectors_{NUM_SONGS or 'all'}.pkl"
+    NUM_RECS = 10
     
     @classmethod
     def validate(cls):
@@ -34,4 +35,5 @@ class Config:
         print("DATA_PATH:", cls.DATA_PATH)
         print("NUM_SONGS:", cls.NUM_SONGS)
         print("VECTORS_PATH:", cls.VECTORS_PATH)
+        print("NUM_RECS:", cls.NUM_RECS)
         
