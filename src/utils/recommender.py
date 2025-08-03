@@ -28,3 +28,32 @@ def calculate_similarity(selected_doc, tfidf_matrix):
     """
     cosine_sim = cosine_similarity(tfidf_matrix[selected_doc], tfidf_matrix)
     return cosine_sim.flatten()
+
+
+def get_similar_songs(sorted_indices, songs, num_similar=10):
+    """ 
+    Filters out duplicate song titles and returns the top N unique song indices.
+
+    Args:
+        sorted_indices (list): List of song indices sorted by similarity (highest to lowest).
+        songs (list): List of song dictionaries.
+        num_similar (int): Number of unique similar songs to return.
+        
+    Returns:
+        list: Indices of unique recommended songs.
+    """
+    
+    # Track titles already seen to avoid duplicates
+    unique_titles = set()
+    recommendations = []
+    
+    for idx in sorted_indices:
+        # Get title of the current song
+        title = songs[idx].get("title", "")
+        if title and title not in unique_titles:
+            # Add to results if unique
+            recommendations.append(idx)
+            unique_titles.add(title)
+        if len(recommendations) >= num_similar:
+            break
+    return recommendations
